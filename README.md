@@ -11,7 +11,7 @@
 [![Hits-of-Code](https://hitsofcode.com/github/yegor256/joined)](https://hitsofcode.com/view/github/yegor256/joined)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/joined/blob/master/LICENSE.txt)
 
-Maybe you know [`to_sentence`][to_sentence] from Rails.
+Do you know [`to_sentence`][to_sentence] from Rails?
 This gem does exactly the same, but without Rails.
 
 ```ruby

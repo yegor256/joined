@@ -17,4 +17,12 @@ class Testjoined < Minitest::Test
     assert_equal('apple, banana, and orange', %w[apple banana orange].joined)
     assert_equal('apple, banana, orange, and pear', %w[apple banana orange pear].joined)
   end
+
+  def test_without_oxford_comma
+    assert_equal('', [].joined(oxford: false))
+    assert_equal('apple', ['apple'].joined(oxford: false))
+    assert_equal('apple and banana', %w[apple banana].joined(oxford: false))
+    assert_equal('apple, banana and orange', %w[apple banana orange].joined(oxford: false))
+    assert_equal('apple, banana, orange and pear', %w[apple banana orange pear].joined(oxford: false))
+  end
 end
