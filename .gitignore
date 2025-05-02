@@ -1,0 +1,11 @@
+*.gem
+.DS_Store
+.bundle/
+.idea/
+.yardoc/
+coverage/
+doc/
+node_modules/
+rdoc/
+temp/
+vendor/
