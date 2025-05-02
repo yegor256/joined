@@ -21,7 +21,7 @@ puts ['orange', 'banana', 'pear'].joined
 
 Prints:
 
-```
+```text
 orange, banana, and pear
 ```
 
