@@ -26,6 +26,12 @@ class Testjoined < Minitest::Test
     assert_equal('apple, banana, orange and pear', %w[apple banana orange pear].joined(oxford: false))
   end
 
+  def test_with_words_connector
+    assert_equal('one two, and three', %w[one two three].joined(words_connector: ' '))
+    assert_equal('one & two, and three', %w[one two three].joined(words_connector: ' & '))
+    assert_equal('onetwo, and three', %w[one two three].joined(words_connector: nil))
+  end
+
   def test_with_invalid_options
     exception = assert_raises ArgumentError do
       %w[one two].joined(passing: 'invalid option')

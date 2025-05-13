@@ -13,11 +13,13 @@ class Array
   # and placing "AND" between the last two items.
   #
   # @param [Boolean] oxford Should we place a comma before AND?
+  # @param [String] words_connector The sign or word used to join all but the last element
+  #   in arrays with three or more elements (default: ", ").
   # @return [String] The text generated (with items joined)
-  def joined(oxford: true)
+  def joined(oxford: true, words_connector: ', ')
     return '' if empty?
     return first if length == 1
 
-    "#{self[0...-1].join(', ')}#{',' if length > 2 && oxford} and #{self[-1]}"
+    "#{self[0...-1].join(words_connector)}#{',' if length > 2 && oxford} and #{self[-1]}"
   end
 end
