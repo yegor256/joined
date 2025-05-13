@@ -32,17 +32,19 @@ That's it.
 The `joined` method supports the following parameters:
 
 * `words_connector` (String) (defaults to: ', ') -
-  the sign or word used to join all but the last element
-  in arrays with three or more elements.
+  the string used to join all but the last element of the list.
 * `last_word_connector` (String) (defaults to: ', and ') -
-  the sign or word used to join the last element in arrays
-  with three or more element.
+  the string used to join the last element of the list.
 * `oxford` (Boolean) (defaults to: true) -
   should we place a comma before the `last_word_connector`?
-  If false, it will remove a leading comma from the `last_word_connector`,
-  however, it does not add a comma if one is not already specified in the `last_word_connector`.
+  If false, it will remove a leading comma from the `last_word_connector`.
+  If true, it will preserve the leading comma specified
+  in the `last_word_connector`, but it will not insert one
+  if not already present.
 
-See the [Yard docs](https://rubydoc.info/github/yegor256/joined/master/frames) for full gem documentation.
+See the
+[Yard docs](https://rubydoc.info/github/yegor256/joined/master/frames)
+for full gem documentation.
 
 ## How to contribute
 
