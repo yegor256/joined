@@ -25,4 +25,12 @@ class Testjoined < Minitest::Test
     assert_equal('apple, banana and orange', %w[apple banana orange].joined(oxford: false))
     assert_equal('apple, banana, orange and pear', %w[apple banana orange pear].joined(oxford: false))
   end
+
+  def test_with_invalid_options
+    exception = assert_raises ArgumentError do
+      %w[one two].joined(passing: 'invalid option')
+    end
+
+    assert_equal 'unknown keyword: :passing', exception.message
+  end
 end
