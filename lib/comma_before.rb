@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2025 Yegor Bugayenko
 # SPDX-License-Identifier: MIT
 
-# Joins elements of array.
+# Moves all commas before the given string.
 #
 # Author:: Ivan Ivanchuk (l3r8y@duck.com)
 # Copyright:: Copyright (c) 2025 Yegor Bugayenko
