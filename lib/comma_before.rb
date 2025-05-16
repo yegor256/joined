@@ -9,7 +9,7 @@
 # Copyright:: Copyright (c) 2025 Yegor Bugayenko
 # License:: MIT
 class String
-  # Inserts comma before given character, and romves it after character.
+  # Inserts comma before given string, and removes it after the give string.
   # @param [String] string that we moving around.
   def comma_before(string)
     gsub(/"([^#{string}]+)#{string}\s*,/, '"\1,"')
