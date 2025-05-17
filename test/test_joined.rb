@@ -4,7 +4,6 @@
 # SPDX-License-Identifier: MIT
 
 require_relative '../lib/joined'
-require_relative '../lib/comma_before'
 
 # Test.
 # Author:: Yegor Bugayenko (yegor256@gmail.com)
@@ -67,6 +66,6 @@ class Testjoined < Minitest::Test
   end
 
   def test_with_comma_before
-    assert_equal '"one," "two," and "three"', %w[one two three].map { |f| "\"#{f}\"" }.joined.comma_before('"')
+    assert_equal '"one," "two," and "three"', %w[one two three].map { |f| "\"#{f}\"" }.joined(comma_before: true)
   end
 end
