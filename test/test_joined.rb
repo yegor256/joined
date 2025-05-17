@@ -64,4 +64,8 @@ class Testjoined < Minitest::Test
 
     assert_equal 'unknown keyword: :passing', exception.message
   end
+
+  def test_with_comma_before
+    assert_equal '"one," "two," and "three"', %w[one two three].map { |f| "\"#{f}\"" }.joined(comma_before: true)
+  end
 end

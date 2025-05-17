@@ -22,14 +22,21 @@ class Array
   #   If true, it will preserve the leading comma specified
   #   in the :last_word_connector, but it will not insert one
   #   if not already present.
+  # @param [Boolean] comma_before
+  #   Should we move comma before the quotes symbol
+  #   If false, it will do nothing
+  #   If true, it will move all commas before the quotes
   # @return [String] The text generated (with items joined)
-  def joined(oxford: true, words_connector: ', ', last_word_connector: ', and ')
+  def joined(oxford: true, words_connector: ', ', last_word_connector: ', and ', comma_before: false)
     return '' if empty?
     return first if length == 1
 
     final_connector = (last_word_connector || '').dup
     final_connector.sub!(/^,/, '') unless oxford && length > 2
 
-    "#{self[0...-1].join(words_connector)}#{final_connector}#{self[-1]}"
+    result = "#{self[0...-1].join(words_connector)}#{final_connector}#{self[-1]}"
+    return result.gsub(/"([^"]+)"\s*,/, '"\1,"') if comma_before
+
+    result
   end
 end
