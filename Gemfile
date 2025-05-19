@@ -6,6 +6,7 @@
 source 'https://rubygems.org'
 gemspec
 
+gem 'mdl', require: false
 gem 'minitest', '~>5.25', require: false
 gem 'minitest-reporters', '~>1.7', require: false
 gem 'rake', '~>13.2', require: false

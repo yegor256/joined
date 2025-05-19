@@ -15,7 +15,7 @@ def version
   Gem::Specification.load(Dir['*.gemspec'].first).version
 end
 
-task default: %i[clean test rubocop yard]
+task default: %i[clean test rubocop mdl yard]
 
 require 'rake/testtask'
 desc 'Run all unit tests'
@@ -37,4 +37,9 @@ require 'rubocop/rake_task'
 desc 'Run RuboCop on all directories'
 RuboCop::RakeTask.new(:rubocop) do |task|
   task.fail_on_error = true
+end
+
+desc 'Run MarkdownLint (mdl) on all Markdown files'
+task :mdl do
+  sh 'mdl .'
 end
