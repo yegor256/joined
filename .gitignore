@@ -3,6 +3,7 @@
 .idea/
 .yardoc/
 *.gem
+.ruby-*
 coverage/
 doc/
 node_modules/
