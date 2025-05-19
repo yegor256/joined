@@ -24,8 +24,8 @@ class Array
   #   if not already present.
   # @param [Boolean] comma_before
   #   Should we move comma before the quotes symbol
-  #   If false, it will do nothing
-  #   If true, it will move all commas before the quotes
+  #   If false, adds the comma outside quotation marks
+  #   If true, adds the comma inside quotation marks
   # @return [String] The text generated (with items joined)
   def joined(oxford: true, words_connector: ', ', last_word_connector: ', and ', comma_before: false)
     return '' if empty?
