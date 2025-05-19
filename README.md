@@ -41,6 +41,9 @@ The `joined` method supports the following parameters:
   If true, it will preserve the leading comma specified
   in the `last_word_connector`, but it will not insert one
   if not already present.
+* `comma_before` (Boolean) (defaults to: false) -
+  If true, adds the comma inside quotation marks (e.g. `"one," "two," and "three"`).
+  If false, adds the comma outside quotation marks (e.g. `"one", "two", and "three"`).
 
 See the
 [Yard docs](https://rubydoc.info/github/yegor256/joined/master/frames)
