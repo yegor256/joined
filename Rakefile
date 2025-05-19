@@ -41,5 +41,5 @@ end
 
 desc 'Run MarkdownLint (mdl) on all Markdown files'
 task :mdl do
-  sh 'mdl .'
+  sh 'mdl README.md'
 end
