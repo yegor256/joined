@@ -78,9 +78,11 @@ class Testjoined < Minitest::Test
 
   def test_comma_before_only_handles_trailing_quotes
     assert_equal '"one"-fer, "two," and "three"', ['"one"-fer', '"two"', '"three"'].joined(comma_before: true)
+    assert_equal '"one"-fer, "two", and "three"', ['"one"-fer', '"two"', '"three"'].joined(comma_before: false)
   end
 
-  def test_comma_before_ignores_trailing_whitespace
+  def test_comma_before_collapses_trailing_whitespace
     assert_equal '"one," "two," and "three" ', ['"one" ', '"two" ', '"three" '].joined(comma_before: true)
+    assert_equal '"one" , "two" , and "three" ', ['"one" ', '"two" ', '"three" '].joined(comma_before: false)
   end
 end
