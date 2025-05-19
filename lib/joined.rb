@@ -35,7 +35,7 @@ class Array
     final_connector.sub!(/^,/, '') unless oxford && length > 2
 
     result = "#{self[0...-1].join(words_connector)}#{final_connector}#{self[-1]}"
-    return result.gsub(/"([^"]+)"\s*,/, '"\1,"') if comma_before
+    result.gsub!(/"([^"]+)"\s*,/, '"\1,"') if comma_before
 
     result
   end
