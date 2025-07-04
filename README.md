@@ -31,17 +31,17 @@ That's it.
 
 The `joined` method supports the following parameters:
 
-* `words_connector` (String) (defaults to: ', ') -
+* `words_connector` (String) (defaults to: `", "`) -
   the string used to join all but the last element of the list.
-* `last_word_connector` (String) (defaults to: ', and ') -
+* `last_word_connector` (String) (defaults to: `", and "`) -
   the string used to join the last element of the list.
-* `oxford` (Boolean) (defaults to: true) -
+* `oxford` (Boolean) (defaults to: `true`) -
   should we place a comma before the `last_word_connector`?
   If false, it will remove a leading comma from the `last_word_connector`.
   If true, it will preserve the leading comma specified
   in the `last_word_connector`, but it will not insert one
   if not already present.
-* `comma_before` (Boolean) (defaults to: false) -
+* `comma_before` (Boolean) (defaults to: `false`) -
   If true, adds the comma inside quotation marks (e.g. `"one," "two," and "three"`).
   If false, adds the comma outside quotation marks (e.g. `"one", "two", and "three"`).
 
