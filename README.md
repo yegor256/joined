@@ -25,6 +25,19 @@ Prints:
 orange, banana, and pear
 ```
 
+You can also limit the number of displayed elements:
+
+```ruby
+require 'joined'
+puts ['apple', 'orange', 'banana', 'pear', 'grape'].joined(max: 3)
+```
+
+Prints:
+
+```text
+apple, orange, banana, etc.
+```
+
 That's it.
 
 ## Options
@@ -44,6 +57,9 @@ The `joined` method supports the following parameters:
 * `comma_before` (Boolean) (defaults to: `false`) -
   If true, adds the comma inside quotation marks (e.g. `"one," "two," and "three"`).
   If false, adds the comma outside quotation marks (e.g. `"one", "two", and "three"`).
+* `max` (Integer) (defaults to: `nil`) -
+  Maximum number of elements to show. If the array has more elements than this value,
+  only the first `max` elements will be displayed, followed by ", etc.".
 
 See the
 [Yard docs](https://rubydoc.info/github/yegor256/joined/master/frames)
