@@ -12,7 +12,7 @@ require_relative '../lib/joined'
 # License:: MIT
 class TestjoinedMax < Minitest::Test
   def test_with_max_parameter_when_array_has_more_elements
-    assert_equal 'one, two, three, and four, etc.', %w[one two three four five six].joined(max: 4)
+    assert_equal 'one, two, three, four, etc.', %w[one two three four five six].joined(max: 4)
   end
 
   def test_with_max_parameter_when_array_has_exact_elements
@@ -40,28 +40,28 @@ class TestjoinedMax < Minitest::Test
   end
 
   def test_with_max_equals_two_and_multiple_elements
-    assert_equal 'one and two, etc.', %w[one two three four].joined(max: 2)
+    assert_equal 'one, two, etc.', %w[one two three four].joined(max: 2)
   end
 
   def test_with_max_equals_three_and_multiple_elements
-    assert_equal 'one, two, and three, etc.', %w[one two three four five].joined(max: 3)
+    assert_equal 'one, two, three, etc.', %w[one two three four five].joined(max: 3)
   end
 
   def test_max_with_oxford_false
-    assert_equal 'one, two, three and four, etc.', %w[one two three four five six].joined(max: 4, oxford: false)
+    assert_equal 'one, two, three, four, etc.', %w[one two three four five six].joined(max: 4, oxford: false)
   end
 
   def test_max_with_custom_connectors
     result = %w[one two three four five].joined(max: 4, words_connector: '; ',
                                                 last_word_connector: '; and also ')
 
-    assert_equal 'one; two; three; and also four, etc.', result
+    assert_equal 'one; two; three; four, etc.', result
   end
 
   def test_max_with_comma_before_and_quoted_items
     list = ['"one"', '"two"', '"three"', '"four"', '"five"']
 
-    assert_equal '"one," "two," "three," and "four", etc.', list.joined(max: 4, comma_before: true)
+    assert_equal '"one," "two," "three," "four", etc.', list.joined(max: 4, comma_before: true)
   end
 
   def test_max_with_nil_value_behaves_like_no_max
@@ -76,18 +76,18 @@ class TestjoinedMax < Minitest::Test
     array = (1..100).map(&:to_s)
     result = array.joined(max: 5)
 
-    assert_equal '1, 2, 3, 4, and 5, etc.', result
+    assert_equal '1, 2, 3, 4, 5, etc.', result
   end
 
   def test_max_with_unicode_elements
     array = %w[α β γ δ ε ζ]
 
-    assert_equal 'α, β, γ, and δ, etc.', array.joined(max: 4)
+    assert_equal 'α, β, γ, δ, etc.', array.joined(max: 4)
   end
 
   def test_max_with_special_characters
     array = ['foo!', 'bar?', 'baz&', 'qux*', 'quux#']
 
-    assert_equal 'foo!, bar?, and baz&, etc.', array.joined(max: 3)
+    assert_equal 'foo!, bar?, baz&, etc.', array.joined(max: 3)
   end
 end

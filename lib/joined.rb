@@ -37,8 +37,12 @@ class Array
     array, etc = truncate_if_needed(self, max)
     return format_single_element(array.first, etc) if array.length == 1
 
-    connector = prepare_final_connector(last_word_connector, oxford, array.length)
-    result = join_elements(array, words_connector, connector)
+    if etc
+      result = array.join(words_connector)
+    else
+      connector = prepare_final_connector(last_word_connector, oxford, array.length)
+      result = join_elements(array, words_connector, connector)
+    end
     result = adjust_quotes(result, comma_before)
     append_etc(result, etc)
   end

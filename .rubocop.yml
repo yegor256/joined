@@ -18,4 +18,5 @@ Layout/EndOfLine:
   EnforcedStyle: lf
 Style/EvalWithLocation:
   Enabled: false
-require: []
+Metrics/MethodLength:
+  Max: 100
