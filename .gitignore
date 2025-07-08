@@ -1,9 +1,10 @@
+*.gem
 .bundle/
+.claude/
 .DS_Store
 .idea/
-.yardoc/
-*.gem
 .ruby-*
+.yardoc/
 coverage/
 doc/
 node_modules/
