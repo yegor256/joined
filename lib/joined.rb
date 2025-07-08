@@ -33,32 +33,26 @@ class Array
   def joined(oxford: true, words_connector: ', ', last_word_connector: ', and ', comma_before: false, max: nil)
     return '' if empty?
     return ', etc.' if max&.zero?
-
     array = self
     etc = false
     if max && length > max
       array = self[0...max]
       etc = true
     end
-
     if array.length == 1
       result = array.first
       result += ', etc.' if etc
       return result
     end
-
     if etc
       result = array.join(words_connector)
     else
-      final_connector = (last_word_connector || '').dup
-      final_connector.sub!(/^,/, '') unless oxford && array.length > 2
-      result = "#{array[0...-1].join(words_connector)}#{final_connector}#{array[-1]}"
+      final = (last_word_connector || '').dup
+      final.sub!(/^,/, '') unless oxford && array.length > 2
+      result = "#{array[0...-1].join(words_connector)}#{final}#{array[-1]}"
     end
-
     result.gsub!(/"([^"]+)"\s*,/, '"\1,"') if comma_before
-
     result += ', etc.' if etc
-
     result
   end
 end

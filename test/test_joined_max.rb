@@ -54,13 +54,11 @@ class TestjoinedMax < Minitest::Test
   def test_max_with_custom_connectors
     result = %w[one two three four five].joined(max: 4, words_connector: '; ',
                                                 last_word_connector: '; and also ')
-
     assert_equal 'one; two; three; four, etc.', result
   end
 
   def test_max_with_comma_before_and_quoted_items
     list = ['"one"', '"two"', '"three"', '"four"', '"five"']
-
     assert_equal '"one," "two," "three," "four", etc.', list.joined(max: 4, comma_before: true)
   end
 
@@ -75,19 +73,16 @@ class TestjoinedMax < Minitest::Test
   def test_max_with_very_large_array
     array = (1..100).map(&:to_s)
     result = array.joined(max: 5)
-
     assert_equal '1, 2, 3, 4, 5, etc.', result
   end
 
   def test_max_with_unicode_elements
     array = %w[α β γ δ ε ζ]
-
     assert_equal 'α, β, γ, δ, etc.', array.joined(max: 4)
   end
 
   def test_max_with_special_characters
     array = ['foo!', 'bar?', 'baz&', 'qux*', 'quux#']
-
     assert_equal 'foo!, bar?, baz&, etc.', array.joined(max: 3)
   end
 end

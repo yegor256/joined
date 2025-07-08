@@ -67,27 +67,24 @@ class Testjoined < Minitest::Test
   end
 
   def test_quoted_items_with_comma_before
-    given_list = ['"one"', '"two"', '"three"']
-
-    assert_equal '"one," "two," and "three"', given_list.joined(comma_before: true)
-    assert_equal '"one", "two", and "three"', given_list.joined(comma_before: false)
-    assert_equal '"one", "two", and "three"', given_list.joined
-    assert_equal '"one," "two" and "three"', given_list.joined(comma_before: true, oxford: false)
-    assert_equal '"one", "two" and "three"', given_list.joined(comma_before: false, oxford: false)
-    assert_equal '"one", "two" and "three"', given_list.joined(oxford: false)
+    list = ['"one"', '"two"', '"three"']
+    assert_equal '"one," "two," and "three"', list.joined(comma_before: true)
+    assert_equal '"one", "two", and "three"', list.joined(comma_before: false)
+    assert_equal '"one", "two", and "three"', list.joined
+    assert_equal '"one," "two" and "three"', list.joined(comma_before: true, oxford: false)
+    assert_equal '"one", "two" and "three"', list.joined(comma_before: false, oxford: false)
+    assert_equal '"one", "two" and "three"', list.joined(oxford: false)
   end
 
   def test_comma_before_only_handles_trailing_quotes
-    given_list = ['"one"-fer', '"two"', '"three"']
-
-    assert_equal '"one"-fer, "two," and "three"', given_list.joined(comma_before: true)
-    assert_equal '"one"-fer, "two", and "three"', given_list.joined(comma_before: false)
+    list = ['"one"-fer', '"two"', '"three"']
+    assert_equal '"one"-fer, "two," and "three"', list.joined(comma_before: true)
+    assert_equal '"one"-fer, "two", and "three"', list.joined(comma_before: false)
   end
 
   def test_comma_before_collapses_trailing_whitespace
-    given_list = ['"one" ', '"two" ', '"three" ']
-
-    assert_equal '"one," "two," and "three" ', given_list.joined(comma_before: true)
-    assert_equal '"one" , "two" , and "three" ', given_list.joined(comma_before: false)
+    list = ['"one" ', '"two" ', '"three" ']
+    assert_equal '"one," "two," and "three" ', list.joined(comma_before: true)
+    assert_equal '"one" , "two" , and "three" ', list.joined(comma_before: false)
   end
 end
