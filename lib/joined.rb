@@ -28,23 +28,26 @@ class Array
   #   If true, adds the comma inside quotation marks
   # @param [Integer] max
   #   Maximum number of elements to show. If array has more elements,
-  #   append ", etc." to the result.
+  #   append the etc suffix to the result.
+  # @param [String] etc
+  #   The suffix to append when max is specified and array is truncated.
   # @return [String] The text generated (with items joined)
-  def joined(oxford: true, words_connector: ', ', last_word_connector: ', and ', comma_before: false, max: nil)
+  def joined(oxford: true, words_connector: ', ', last_word_connector: ', and ',
+             comma_before: false, max: nil, etc: ', etc.')
     return '' if empty?
-    return ', etc.' if max&.zero?
+    return etc if max&.zero?
     array = self
-    etc = false
+    truncated = false
     if max && length > max
       array = self[0...max]
-      etc = true
+      truncated = true
     end
     if array.length == 1
       result = array.first
-      result += ', etc.' if etc
+      result += etc if truncated
       return result
     end
-    if etc
+    if truncated
       result = array.join(words_connector)
     else
       final = (last_word_connector || '').dup
@@ -52,7 +55,7 @@ class Array
       result = "#{array[0...-1].join(words_connector)}#{final}#{array[-1]}"
     end
     result.gsub!(/"([^"]+)"\s*,/, '"\1,"') if comma_before
-    result += ', etc.' if etc
+    result += etc if truncated
     result
   end
 end

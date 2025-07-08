@@ -30,3 +30,5 @@ Minitest/EmptyLineBeforeAssertionMethods:
   Enabled: false
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
+Metrics/ParameterLists:
+  Enabled: false
