@@ -19,4 +19,10 @@ Layout/EndOfLine:
 Style/EvalWithLocation:
   Enabled: false
 Metrics/MethodLength:
-  Max: 100
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false

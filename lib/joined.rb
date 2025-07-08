@@ -34,52 +34,31 @@ class Array
     return '' if empty?
     return ', etc.' if max&.zero?
 
-    array, etc = truncate_if_needed(self, max)
-    return format_single_element(array.first, etc) if array.length == 1
+    array = self
+    etc = false
+    if max && length > max
+      array = self[0...max]
+      etc = true
+    end
+
+    if array.length == 1
+      result = array.first
+      result += ', etc.' if etc
+      return result
+    end
 
     if etc
       result = array.join(words_connector)
     else
-      connector = prepare_final_connector(last_word_connector, oxford, array.length)
-      result = join_elements(array, words_connector, connector)
+      final_connector = (last_word_connector || '').dup
+      final_connector.sub!(/^,/, '') unless oxford && array.length > 2
+      result = "#{array[0...-1].join(words_connector)}#{final_connector}#{array[-1]}"
     end
-    result = adjust_quotes(result, comma_before)
-    append_etc(result, etc)
-  end
 
-  private
+    result.gsub!(/"([^"]+)"\s*,/, '"\1,"') if comma_before
 
-  def truncate_if_needed(array, max)
-    return [array, false] unless max && array.length > max
-
-    [array[0...max], true]
-  end
-
-  def format_single_element(element, etc)
-    result = element
     result += ', etc.' if etc
+
     result
-  end
-
-  def prepare_final_connector(connector, oxford, length)
-    final = (connector || '').dup
-    final.sub!(/^,/, '') unless oxford && length > 2
-    final
-  end
-
-  def join_elements(array, words_connector, final_connector)
-    "#{array[0...-1].join(words_connector)}#{final_connector}#{array[-1]}"
-  end
-
-  def adjust_quotes(result, comma_before)
-    return result unless comma_before
-
-    result.gsub(/"([^"]+)"\s*,/, '"\1,"')
-  end
-
-  def append_etc(result, etc)
-    return result unless etc
-
-    "#{result}, etc."
   end
 end
