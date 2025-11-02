@@ -60,6 +60,8 @@ The `joined` method supports the following parameters:
 * `max` (Integer) (defaults to: `nil`) -
   Maximum number of elements to show. If the array has more elements than this value,
   only the first `max` elements will be displayed, followed by ", etc.".
+* `etc` (String) (defaults to: `, etc.`) -
+  The suffix to append when max is specified and array is truncated.
 
 See the
 [Yard docs](https://rubydoc.info/github/yegor256/joined/master/frames)
