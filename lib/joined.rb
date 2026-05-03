@@ -9,7 +9,7 @@
 # Copyright:: Copyright (c) 2025 Yegor Bugayenko
 # License:: MIT
 class Array
-  # Join strings into a single line, splitting them with comma
+  # Join strings into a single line, splitting them with a comma
   # and placing "AND" between the last two items.
   #
   # @param [String] words_connector
@@ -23,11 +23,11 @@ class Array
   #   in the :last_word_connector, but it will not insert one
   #   if not already present.
   # @param [Boolean] comma_before
-  #   Should we move comma before the quotes symbol
-  #   If false, adds the comma outside quotation marks
-  #   If true, adds the comma inside quotation marks
+  #   Should we move comma before the quotes symbol?
+  #   If false, adds the comma outside quotation marks.
+  #   If true, adds the comma inside quotation marks.
   # @param [Integer] max
-  #   Maximum number of elements to show. If array has more elements,
+  #   Maximum number of elements to show. If the array has more elements,
   #   append the etc suffix to the result.
   # @param [String] etc
   #   The suffix to append when max is specified and array is truncated.
