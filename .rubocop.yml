@@ -14,6 +14,7 @@ plugins:
   - rubocop-rake
   - rubocop-minitest
   - rubocop-performance
+  - rubocop-elegant
 Layout/EndOfLine:
   EnforcedStyle: lf
 Style/EvalWithLocation:
@@ -32,3 +33,14 @@ Layout/EmptyLineAfterGuardClause:
   Enabled: false
 Metrics/ParameterLists:
   Enabled: false
+Elegant/ClassInModule:
+  Exclude:
+    - 'lib/**/*'
+    - '**/test_*.rb'
+    - '**/*Test.rb'
+Elegant/GoodMethodName:
+  AllowedNames:
+    - 'test_with_last_word_connector_but_without_oxford_comma'
+    - 'test_with_max_parameter_when_array_has_more_elements'
+    - 'test_with_max_parameter_when_array_has_exact_elements'
+    - 'test_with_max_parameter_when_array_has_fewer_elements'

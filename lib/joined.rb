@@ -32,8 +32,14 @@ class Array
   # @param [String] etc
   #   The suffix to append when max is specified and array is truncated.
   # @return [String] The text generated (with items joined)
-  def joined(oxford: true, words_connector: ', ', last_word_connector: ', and ',
-             comma_before: false, max: nil, etc: ', etc.')
+  def joined(
+    oxford: true,
+    words_connector: ', ',
+    last_word_connector: ', and ',
+    comma_before: false,
+    max: nil,
+    etc: ', etc.'
+  )
     return '' if empty?
     return etc if max&.zero?
     array = self
