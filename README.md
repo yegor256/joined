@@ -55,10 +55,13 @@ The `joined` method supports the following parameters:
   in the `last_word_connector`, but it will not insert one
   if not already present.
 * `comma_before` (Boolean) (defaults to: `false`) -
-  If true, adds the comma inside quotation marks (e.g. `"one," "two," and "three"`).
-  If false, adds the comma outside quotation marks (e.g. `"one", "two", and "three"`).
+  If true, adds the comma inside quotation marks
+  (e.g. `"one," "two," and "three"`).
+  If false, adds the comma outside quotation marks
+  (e.g. `"one", "two", and "three"`).
 * `max` (Integer) (defaults to: `nil`) -
-  Maximum number of elements to show. If the array has more elements than this value,
+  Maximum number of elements to show.
+  If the array has more elements than this value,
   only the first `max` elements will be displayed, followed by ", etc.".
 * `etc` (String) (defaults to: `, etc.`) -
   The suffix to append when max is specified and array is truncated.
