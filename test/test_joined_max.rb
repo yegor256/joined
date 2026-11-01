@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative '../lib/joined'
 # SPDX-FileCopyrightText: Copyright (c) 2025 Yegor Bugayenko
 # SPDX-License-Identifier: MIT
 
+require_relative '../lib/joined'
 require_relative 'test__helper'
 
 # Test for max parameter.
