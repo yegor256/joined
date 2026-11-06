@@ -40,6 +40,7 @@ class Array
     max: nil,
     etc: ', etc.'
   )
+    raise(ArgumentError, "The max must not be negative, while #{max} provided") if max&.negative?
     return '' if empty?
     return etc if max&.zero?
     array = self
@@ -49,7 +50,7 @@ class Array
       truncated = true
     end
     if array.length == 1
-      result = array.first
+      result = array.first.to_s
       result += etc if truncated
       return result
     end
