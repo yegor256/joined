@@ -58,6 +58,14 @@ class Testjoined < Minitest::Test
     assert_equal('one', ['one'].joined)
   end
 
+  def test_one_numeric_element
+    assert_equal('7', [7].joined)
+  end
+
+  def test_one_nil_element
+    assert_equal('', [nil].joined)
+  end
+
   def test_with_invalid_options
     assert_equal(
       'unknown keyword: :passing',

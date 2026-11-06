@@ -73,6 +73,18 @@ class TestjoinedMax < Minitest::Test
     assert_equal(', etc.', %w[one two three].joined(max: 0))
   end
 
+  def test_max_with_one_numeric_element
+    assert_equal('7, etc.', [7, 8].joined(max: 1))
+  end
+
+  def test_max_with_negative_value
+    assert_raises(ArgumentError) { %w[one two three].joined(max: -1) }
+  end
+
+  def test_max_with_negative_value_and_empty_array
+    assert_raises(ArgumentError) { [].joined(max: -1) }
+  end
+
   def test_max_with_very_large_array
     assert_equal('1, 2, 3, 4, 5, etc.', (1..100).map(&:to_s).joined(max: 5))
   end
